@@ -1,5 +1,5 @@
 <template>
-  <svg class="Shape" :width="width" :height="height" :viewBox="`0 0 ${width} ${height}`" xmlns="http://www.w3.org/2000/svg">
+  <svg class="shape" :width="width" :height="height" :viewBox="`0 0 ${width} ${height}`" xmlns="http://www.w3.org/2000/svg">
     <g opacity="0">
       <polyline
         id="baseline"
@@ -31,11 +31,6 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  data() {
-    return {
-      baseRotation: 0 as Number
-    }
-  },
   props: {
     points: {
       type: Array,
@@ -54,6 +49,11 @@ export default Vue.extend({
       default: 320,
     },
   },
+  data() {
+    return {
+      baseRotation: 0 as Number
+    }
+  },
   watch: {
     corners() {
       this.baseRotation = Math.random() * 20
@@ -62,13 +62,13 @@ export default Vue.extend({
   methods: {
     getTransform(n: Number) {
       return `translate(${this.width / 2} ${this.height / 2}) rotate(${n * 360 / this.corners + this.baseRotation})`
-    }
+    },
   },
 })
 </script>
 
 <style>
-.Shape {
+.shape {
   animation: 1s appear;
   margin: auto;
 }

@@ -27,4 +27,24 @@ describe('Shape', () => {
       expect(wrapper.vm.getTransform(5)).toEqual('translate(60 15) rotate(180)')
     })
   })
+
+  describe('watch corners', () => {
+    test('assign a new random base rotation once corners update', async () => {
+      const wrapper = shallowMount(Shape, {
+        propsData: {
+          corners: 5,
+        }
+      })
+      expect(wrapper.vm.baseRotation).toEqual(0)
+
+      jest.spyOn(Math, 'random')
+
+      await wrapper.setProps({
+        corners: 18
+      })
+      expect(wrapper.vm.corners).toEqual(18)
+      expect(Math.random).toHaveBeenCalled()
+      expect(wrapper.vm.baseRotation).not.toEqual(0)
+    })
+  })
 })
