@@ -51,7 +51,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      baseRotation: 0 as Number
+      baseRotation: 0 as number
     }
   },
   watch: {
@@ -60,7 +60,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    getTransform(n: Number) {
+    getTransform(n: number) {
       return `translate(${this.width / 2} ${this.height / 2}) rotate(${n * 360 / this.corners + this.baseRotation})`
     },
   },

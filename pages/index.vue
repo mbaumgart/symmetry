@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <div>
+      <PatternInput :points="points" @update="updatePoints" />
+      <br />
       <input type="range" min="3" max="30" v-model="corners">
       <br />
       <Shape :points="points" :corners="parseInt(corners)" />
@@ -17,9 +19,15 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
-      points: [[0,0], [15,8], [25,8], [50,-10], [70,50], [150,0]],
+      // points: [[0,0], [15,8], [25,8], [50,-10], [70,40], [150,0]],
+      points: [[0,0], [30,0], [60,0], [90,0], [120,0], [150,0]],
       corners: '10' as String,
     }
+  },
+  methods: {
+    updatePoints(points: Array<Array<number>>) {
+      this.points = points
+    },
   },
 })
 </script>
