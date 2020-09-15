@@ -31,6 +31,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  data() {
+    return {
+      baseRotation: 0 as Number
+    }
+  },
   props: {
     corners: {
       type: Number,
@@ -45,11 +50,16 @@ export default Vue.extend({
       default: 320,
     },
   },
+  watch: {
+    corners() {
+      this.baseRotation = Math.random() * 20
+    },
+  },
   methods: {
     getTransform(n: Number) {
-      return `translate(${this.width / 2} ${this.height / 2}) rotate(${n * 360 / this.corners})`
+      return `translate(${this.width / 2} ${this.height / 2}) rotate(${n * 360 / this.corners + this.baseRotation})`
     }
-  }
+  },
 })
 </script>
 

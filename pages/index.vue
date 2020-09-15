@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <Display />
+      <input type="range" min="2" max="30" v-model="corners">
+      <br />
+      <Shape :corners="parseInt(corners)" />
       <h1 class="title">
         symmetry
       </h1>
@@ -32,7 +34,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    return {
+      corners: '10' as String,
+    }
+  },
+})
 </script>
 
 <style>
@@ -43,6 +51,7 @@ export default Vue.extend({})
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: #edf2f7;
 }
 
 .title {
