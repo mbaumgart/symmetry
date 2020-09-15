@@ -1,9 +1,9 @@
 <template>
-  <svg class="Shape" :width="width" :height="height" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <svg class="Shape" :width="width" :height="height" :viewBox="`0 0 ${width} ${height}`" xmlns="http://www.w3.org/2000/svg">
     <g opacity="0">
       <polyline
         id="baseline"
-        points="0,0 15,8 25,8 50,-10 70,50 150,0"
+        :points="points.map(p => p.join(',')).join(' ')"
         fill="none"
         stroke-linejoin="round"
         stroke-linecap="round"
@@ -37,6 +37,10 @@ export default Vue.extend({
     }
   },
   props: {
+    points: {
+      type: Array,
+      default: () => [],
+    },
     corners: {
       type: Number,
       default: 10,

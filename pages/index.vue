@@ -1,32 +1,12 @@
 <template>
   <div class="container">
     <div>
-      <input type="range" min="2" max="30" v-model="corners">
+      <input type="range" min="3" max="30" v-model="corners">
       <br />
-      <Shape :corners="parseInt(corners)" />
+      <Shape :points="points" :corners="parseInt(corners)" />
       <h1 class="title">
         symmetry
       </h1>
-      <!--
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-      -->
     </div>
   </div>
 </template>
@@ -37,6 +17,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data() {
     return {
+      points: [[0,0], [15,8], [25,8], [50,-10], [70,50], [150,0]],
       corners: '10' as String,
     }
   },
