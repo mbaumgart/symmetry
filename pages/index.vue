@@ -1,10 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <Display />
       <h1 class="title">
         symmetry
       </h1>
+      <!--
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -23,6 +24,7 @@
           GitHub
         </a>
       </div>
+      -->
     </div>
   </div>
 </template>
