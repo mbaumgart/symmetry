@@ -49,7 +49,7 @@ export default Vue.extend({
     dragStart() {
       this.dragging = true
     },
-    dragMove(event: Object, i: number) {
+    dragMove(event: any, i: number) {
       if (this.dragging) {
         const screenMatrix = event.target.getScreenCTM()
         const x = (event.clientX - screenMatrix.e) / screenMatrix.a - this.markerRadius * 0.3
