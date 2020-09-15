@@ -67,10 +67,6 @@ export default Vue.extend({
 </script>
 
 <style>
-.pattern {
-  border: 1px solid lightgray;
-}
-
 circle {
   cursor: pointer;
 }
